@@ -17,6 +17,7 @@ import com.fishapp.FishappActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 public class XmlParser {
@@ -62,7 +63,9 @@ public class XmlParser {
 	    Log.d("Temperature max and min-->", "max = "+ temperatureMax+ "min = "+ temperatureMin);
 	    
 	    //writing weather data to shared preferences
-	    
+	    SharedPreferences settings = context.getSharedPreferences("wheaterPreference", context.MODE_PRIVATE);
+	    SharedPreferences.Editor prefEditor = settings.edit();
+	    prefEditor.putString("TemperatureMax", temperatureMax);
 	    
 	    //sending intent extras back to activity
 	    Intent toActivity = new Intent(context, FishappActivity.class);
