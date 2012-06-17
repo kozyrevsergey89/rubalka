@@ -21,27 +21,41 @@ public class FishappActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         //starting intent-service
-        startService(new Intent(this, ParsingService.class));
         
         BroadcastReceiver sentSmsBroadcastCome = new BroadcastReceiver() {
 
             @Override
             public void onReceive(Context context, Intent intent) {
-            	if (intent.getExtras() != null){
-            		temperature = intent.getStringExtra("weather"); 
+            	if ((intent.getExtras() != null)&&(intent.getStringExtra("weatherJob")=="done")){
+            		//displayWeather(); TO DO
+            		getFromSharedPreferences(); 
             	}
             }
         };
-        //to do - implement boolean internetConnectionPersist() - done
-        if (!getConnInfo()){
-        	SharedPreferences settings = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
-    	    temperature = settings.getString("TemperatureMax", "not found");
+        
+        if (getConnInfo()){
+        	//starting service with xml parsing
+        	startService(new Intent(this, ParsingService.class));
+            //registering receiver
+        	IntentFilter filterSend = new IntentFilter();
+            filterSend.addAction("toActivity");
+            registerReceiver(sentSmsBroadcastCome, filterSend);
+        	//SharedPreferences settings = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
+    	    //temperature = settings.getString("TemperatureMax", "not found");
         }else{
-        IntentFilter filterSend = new IntentFilter();
-        filterSend.addAction("toActivity");
-        registerReceiver(sentSmsBroadcastCome, filterSend);
+        	//displayWeather();
+        	getFromSharedPreferences();
         }
     }
+	
+	private void displayWeather(){
+		
+	}
+	
+	private void getFromSharedPreferences(){
+		SharedPreferences prefs = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
+		temperature = prefs.getString("TemperatureMax", "not found");
+	}
 	
 	public Boolean getConnInfo(){
         ConnectivityManager conMgr =  (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -56,8 +70,5 @@ public class FishappActivity extends Activity {
 		  return true;
 		
 	}
-    
-    
-    
     
 }

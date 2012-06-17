@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -16,13 +14,10 @@ import com.fishapp.FishappActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender.SendIntentException;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 public class XmlParser {
-	
-	
 	
 	public XmlParser(Context context){
 		this.context=context;
@@ -33,8 +28,6 @@ public class XmlParser {
 	
 	public void parseXml(String weatherUrl) throws XmlPullParserException, IOException
 	{
-		
-		      
 			  XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 		      XmlPullParser parser = factory.newPullParser();
 
@@ -48,32 +41,29 @@ public class XmlParser {
 		          in = new FileInputStream(weatherUrl);
 		      }
 		      parser.setInput(in, null);
+		//preparing to write data to shared preferences
+	    SharedPreferences settings = context.getSharedPreferences("wheaterPreference", Context.MODE_PRIVATE);
+	    SharedPreferences.Editor prefEditor = settings.edit();
+	    //use preferences to prefEditor.putString("TemperatureMax", temperatureMax);
 
 	    while (!"FORECAST".equals(parser.getName()) && parser.getEventType() != XmlPullParser.START_TAG) {
 	        parser.next();
 	    }
-	    forecastDay = parser.getAttributeValue(null, "day");
-	    forecastMonth = parser.getAttributeValue(null, "month");
-	    Log.d("FORECAST date-->", forecastDay+forecastMonth);
+	    //writing date to pref
+	    prefEditor.putString("forecastDay", parser.getAttributeValue(null, "day"));
+	    prefEditor.putString("forecastMonth", parser.getAttributeValue(null, "month"));
 	    while (!"TEMPERATURE".equals(parser.getName()) && parser.getEventType() != XmlPullParser.START_TAG) {
 	        parser.next();
 	    }
-	    temperatureMax= parser.getAttributeValue(null, "max");
-	    temperatureMin = parser.getAttributeValue(null, "min");
-	    Log.d("Temperature max and min-->", "max = "+ temperatureMax+ "min = "+ temperatureMin);
+	    prefEditor.putString("temperatureMax", parser.getAttributeValue(null, "max"));
+	    prefEditor.putString("temperaturemin", parser.getAttributeValue(null, "min"));
 	    
-	    //writing weather data to shared preferences
-	    SharedPreferences settings = context.getSharedPreferences("wheaterPreference", context.MODE_PRIVATE);
-	    SharedPreferences.Editor prefEditor = settings.edit();
-	    prefEditor.putString("TemperatureMax", temperatureMax);
+	    
 	    
 	    //sending intent extras back to activity
 	    Intent toActivity = new Intent(context, FishappActivity.class);
-	    toActivity.putExtra("weather", temperatureMax );
+	    toActivity.putExtra("weatherJob", "done" );
 	    context.sendBroadcast(toActivity);
-	    
-	    
-	    
 		}
 
 	}
