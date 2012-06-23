@@ -1,5 +1,8 @@
 package com.fishapp;
 
+import java.util.Calendar;
+import java.util.Random;
+
 import com.fishapp.service.ParsingService;
 
 import android.app.Activity;
@@ -11,15 +14,16 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 public class FishappActivity extends Activity {
     /** Called when the activity is first created. */
-	public String temperature;
+	public String temperature,cloudiness,presipatation;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.weatherlayout);
         //starting intent-service
         
         BroadcastReceiver sentSmsBroadcastCome = new BroadcastReceiver() {
@@ -27,8 +31,8 @@ public class FishappActivity extends Activity {
             @Override
             public void onReceive(Context context, Intent intent) {
             	if ((intent.getExtras() != null)&&(intent.getStringExtra("weatherJob")=="done")){
-            		//displayWeather(); TO DO
-            		getFromSharedPreferences(); 
+            		getFromSharedPreferences();
+            		displayWeather();
             	}
             }
         };
@@ -40,21 +44,59 @@ public class FishappActivity extends Activity {
         	IntentFilter filterSend = new IntentFilter();
             filterSend.addAction("toActivity");
             registerReceiver(sentSmsBroadcastCome, filterSend);
-        	//SharedPreferences settings = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
-    	    //temperature = settings.getString("TemperatureMax", "not found");
-        }else{
-        	//displayWeather();
-        	getFromSharedPreferences();
-        }
+        }	
+        getFromSharedPreferences();
+        displayWeather();
+        
+        
     }
 	
 	private void displayWeather(){
+		ImageView bigWeather = (ImageView) findViewById(R.id.bigweather);
+		ImageView bigMoon = (ImageView) findViewById(R.id.bigmoon);
+		ImageView smallWeather1 = (ImageView) findViewById(R.id.smallweather1);
+		ImageView smallWeather2 = (ImageView) findViewById(R.id.smallweather2);
+		ImageView smallWeather3 = (ImageView) findViewById(R.id.smallweather3);
+		ImageView smallWeather4 = (ImageView) findViewById(R.id.smallweather4);
+		if (Integer.parseInt(cloudiness) > 0){
+			bigWeather.setImageLevel(2);
+			smallWeather1.setImageLevel(2);
+		}
+		if (Integer.parseInt(presipatation)>0){
+			bigWeather.setImageLevel(3);
+			smallWeather1.setImageLevel(3);
+		}
+		Random randomGenerator = new Random();
+		smallWeather2.setImageLevel(randomGenerator.nextInt(3));
+		smallWeather3.setImageLevel(randomGenerator.nextInt(3));
+		smallWeather4.setImageLevel(randomGenerator.nextInt(3));
+		Calendar rightNow = Calendar.getInstance();
+		int x = 7;
+		if (rightNow.getTime().getDay() < x){
+			bigMoon.setImageLevel(0);
+		}else if(rightNow.getTime().getDay() < 2*x){
+			bigMoon.setImageLevel(1);
+		}else if(rightNow.getTime().getDay() < 3*x){
+			bigMoon.setImageLevel(2);
+		}else{
+			bigMoon.setImageLevel(3);
+		}
+		
+		
 		
 	}
 	
 	private void getFromSharedPreferences(){
+		
 		SharedPreferences prefs = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
-		temperature = prefs.getString("TemperatureMax", "not found");
+		if (!prefs.getAll().isEmpty()){
+			temperature = prefs.getString("TemperatureMax", "not found");
+			cloudiness = prefs.getString("cloudiness", "not found");
+			presipatation = prefs.getString("presipatation", "not found");
+			
+		}
+		
+		
 	}
 	
 	public Boolean getConnInfo(){

@@ -52,10 +52,15 @@ public class XmlParser {
 	    //writing date to pref
 	    prefEditor.putString("forecastDay", parser.getAttributeValue(null, "day"));
 	    prefEditor.putString("forecastMonth", parser.getAttributeValue(null, "month"));
+	    while (!"PHENOMENA".equals(parser.getName()) && parser.getEventType() != XmlPullParser.START_TAG) {
+	        parser.next();
+	    }
+	    prefEditor.putString("cloudiness", parser.getAttributeValue(null, "cloudiness"));
+	    prefEditor.putString("precipitation", parser.getAttributeValue(null, "precipitation"));
 	    while (!"TEMPERATURE".equals(parser.getName()) && parser.getEventType() != XmlPullParser.START_TAG) {
 	        parser.next();
 	    }
-	    prefEditor.putString("temperatureMax", parser.getAttributeValue(null, "max"));
+	    prefEditor.putString("temperaturemax", parser.getAttributeValue(null, "max"));
 	    prefEditor.putString("temperaturemin", parser.getAttributeValue(null, "min"));
 	    
 	    
