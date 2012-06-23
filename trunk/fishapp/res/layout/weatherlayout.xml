@@ -1,57 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center" >
     
-    <RelativeLayout 
+    <LinearLayout 
         android:layout_width="fill_parent"
-        android:layout_height="700dip"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         >
         
         <ImageView 
+            android:src="@drawable/big_images_list"
             style="@style/weatherstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bigweather"
-            android:contentDescription="@drawable/big_images_list"/>
+            android:contentDescription="@drawable/big_images_list"
+            />
         <ImageView
-            style="@style/weatherstyle" 
+            android:src="@drawable/big_moon_list"
+            style="@style/weatherstyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bigmoon"
-            android:layout_toRightOf="@id/bigweather"/>
-        <TextView 
+            />
+        
+        
+    </LinearLayout>
+    
+    <TextView
+            android:text="Test weather: +100500 C"
+            android:textSize="10pt" 
             style="@style/weatherstyle"
             android:id="@+id/weathertext"
             android:lines="4"
-            android:layout_below="@id/bigweather"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             />
-        
-    </RelativeLayout>
     
     <LinearLayout 
         android:layout_width="fill_parent"
-        android:layout_height="300dip"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="4"
+        android:gravity="top"
         >
         <ImageView 
+            android:src="@drawable/small_images_list"
             style="@style/weatherstyle"
             android:layout_weight="1"
-            android:id="@+id/smallweather1"/>
+            android:id="@+id/smallweather1"
+            android:layout_height="wrap_content"/>
         <ImageView
+            android:src="@drawable/small_images_list"
             style="@style/weatherstyle" 
             android:layout_weight="1"
-            android:id="@+id/smallweather2"/>
+            android:id="@+id/smallweather2"
+            android:layout_height="wrap_content"/>
         <ImageView 
+            android:src="@drawable/small_images_list"
             style="@style/weatherstyle"
             android:layout_weight="1"
-            android:id="@+id/smallweather3"/>
+            android:id="@+id/smallweather3"
+            android:layout_height="wrap_content"/>
         <ImageView 
+            android:src="@drawable/small_images_list"
             style="@style/weatherstyle"
             android:layout_weight="1"
-            android:id="@+id/smallweather4"/>
+            android:id="@+id/smallweather4"
+            android:layout_height="wrap_content"/>
         
     </LinearLayout>
 
