@@ -18,7 +18,9 @@ import android.widget.ImageView;
 
 public class FishappActivity extends Activity {
     /** Called when the activity is first created. */
-	public String temperature,cloudiness,presipatation;
+	public String temperature="0";
+	public String cloudiness="0";
+	public String presipatation="0";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
