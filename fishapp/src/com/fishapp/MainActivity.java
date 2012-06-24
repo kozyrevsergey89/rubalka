@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -33,8 +34,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, FishappActivity.class));
 			break;
 		case R.id.calendar:
+			Toast.makeText(this, getString(R.string.calendar_toast), Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.cook_book:
+			startActivity(new Intent(this, FishAppRecipeActivity.class));
 			break;
 		case R.id.wiki:
 			break;

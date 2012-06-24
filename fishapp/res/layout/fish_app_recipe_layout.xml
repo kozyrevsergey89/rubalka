@@ -2,27 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@android:color/white">
+    
+    <include layout="@layout/action_bar"/>
     
     <Button 
         style="@style/weatherstyle"
-        android:layout_height="wrap_content"
-        android:text="@string/recipe1"
+        android:layout_height="50dp"
+        android:text="@string/fish_soup"
         android:id="@+id/recipebutton1"
+        android:layout_margin="0dp"
+        android:background="@drawable/bg_recept_selector"
+        android:textColor="#000066"
+        android:textStyle="bold"
+        android:textSize="15dp"
         />
-    <Button 
-        style="@style/weatherstyle"
-        android:layout_height="wrap_content"
-        android:text="@string/recipe2"
-        android:id="@+id/recipebutton2"
-        />
-    <Button 
-        style="@style/weatherstyle"
-        android:layout_height="wrap_content"
-        android:text="@string/recipe3"
-        android:id="@+id/recipebutton3"
-        />
-    
-    
 
+    <View 
+        android:layout_height="1dp"
+        android:layout_width="fill_parent"
+        android:background="@drawable/bg_gradient"
+        android:layout_gravity="center_horizontal"
+        />
+    
+    <Button 
+        style="@style/weatherstyle"
+        android:layout_height="50dp"
+        android:text="@string/fish_burger"
+        android:id="@+id/recipebutton2"
+        android:layout_margin="0dp"
+        android:textColor="#000066"
+        android:background="@drawable/bg_recept_selector"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        />
+    
+    <View 
+        android:layout_height="1dp"
+        android:layout_width="fill_parent"
+        android:background="@drawable/bg_gradient"
+        android:layout_gravity="center_horizontal"
+        />
+    
+    <Button 
+        style="@style/weatherstyle"
+        android:layout_margin="0dp"
+        android:layout_height="50dp"
+        android:text="@string/goulash"
+        android:id="@+id/recipebutton3"
+        android:background="@drawable/bg_recept_selector"
+        android:textColor="#000066"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        />
+    
+    <View 
+        android:layout_height="1dp"
+        android:layout_width="fill_parent"
+        android:background="@drawable/bg_gradient"
+        android:layout_gravity="center_horizontal"
+        />
+    
 </LinearLayout>
