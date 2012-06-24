@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Fish app</string>
+    <string name="hello">Клёв будет</string>
     <string name="app_name">Fishapp</string>
     <string name="weather_url">http://informer.gismeteo.ru/xml/33345_1.xml</string>
     <string name="smallw1">smallweather1</string>

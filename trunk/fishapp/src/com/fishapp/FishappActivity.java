@@ -15,20 +15,23 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class FishappActivity extends Activity {
     /** Called when the activity is first created. */
 	public String temperature="0";
 	public String cloudiness="0";
 	public String presipatation="0";
+	private BroadcastReceiver sentSmsBroadcastCome;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weatherlayout);
         //starting intent-service
-        
-        BroadcastReceiver sentSmsBroadcastCome = new BroadcastReceiver() {
+        TextView actionBaView = (TextView) findViewById(R.id.action_bar_logo);
+        actionBaView.setText(getString(R.string.weather));
+        sentSmsBroadcastCome = new BroadcastReceiver() {
 
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -39,6 +42,11 @@ public class FishappActivity extends Activity {
             }
         };
         
+    }
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
         if (getConnInfo()){
         	//starting service with xml parsing
         	startService(new Intent(this, ParsingService.class));
@@ -49,9 +57,14 @@ public class FishappActivity extends Activity {
         }	
         getFromSharedPreferences();
         displayWeather();
-        
-        
-    }
+
+	}
+	
+	@Override
+	protected void onStop() {
+		unregisterReceiver(sentSmsBroadcastCome);
+		super.onStop();
+	}
 	
 	private void displayWeather(){
 		ImageView bigWeather = (ImageView) findViewById(R.id.bigweather);
@@ -114,5 +127,7 @@ public class FishappActivity extends Activity {
 		  return true;
 		
 	}
+	
+	
     
 }
