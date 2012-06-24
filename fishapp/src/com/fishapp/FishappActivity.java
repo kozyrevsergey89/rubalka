@@ -16,10 +16,11 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FishappActivity extends Activity {
     /** Called when the activity is first created. */
-	public String temperature="0";
+	public String temperature="+19";
 	public String cloudiness="0";
 	public String presipatation="0";
 	private BroadcastReceiver sentSmsBroadcastCome;
@@ -73,11 +74,15 @@ public class FishappActivity extends Activity {
 		ImageView smallWeather2 = (ImageView) findViewById(R.id.smallweather2);
 		ImageView smallWeather3 = (ImageView) findViewById(R.id.smallweather3);
 		ImageView smallWeather4 = (ImageView) findViewById(R.id.smallweather4);
-		if (Integer.parseInt(cloudiness) > 0){
+		TextView weatherInfo = (TextView) findViewById(R.id.weathertext);
+		if ((temperature.length()>0)&&(temperature.length() > 0)){
+			weatherInfo.setText(temperature);
+		}
+		if ((cloudiness.length()>0)&&(Integer.parseInt(cloudiness)) > 0){
 			bigWeather.setImageLevel(2);
 			smallWeather1.setImageLevel(2);
 		}
-		if (Integer.parseInt(presipatation)>0){
+		if ((presipatation.length()>0)&&(Integer.parseInt(presipatation)>0)){
 			bigWeather.setImageLevel(3);
 			smallWeather1.setImageLevel(3);
 		}
@@ -105,6 +110,7 @@ public class FishappActivity extends Activity {
 		
 		SharedPreferences prefs = getSharedPreferences("wheaterPreference", MODE_PRIVATE);
 		if (!prefs.getAll().isEmpty()){
+			Toast.makeText(this, "preferences inside!!!", 1000).show();
 			temperature = prefs.getString("TemperatureMax", "not found");
 			cloudiness = prefs.getString("cloudiness", "not found");
 			presipatation = prefs.getString("presipatation", "not found");

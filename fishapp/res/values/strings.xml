@@ -11,11 +11,13 @@
     <string name="fish_soup">Уха</string>
     <string name="fish_burger">Рыбные котлеты</string>
     <string name="goulash">Гуляш</string>
-    
+    <string name="moon_cicle_text">Фаза луны</string>
+    <string name="weather_cicle_text">Погода на сегодня</string>
     <string name="weather">Погода</string>
     <string name="calendar">Календарь</string>
     <string name="wiki">Инфо</string>
     <string name="cook_book">Рецепты</string>
+    <string name="small_weather_description">Погода на ближайшие четыре дня</string>
     
     <string name="calendar_toast">Календарь рыбака доступен в платной версии.</string>
     
