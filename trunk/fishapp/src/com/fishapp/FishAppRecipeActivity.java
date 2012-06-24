@@ -5,11 +5,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FishAppRecipeActivity extends Activity {
+public class FishAppRecipeActivity extends Activity implements OnClickListener{
     /** Called when the activity is first created. */
+	
+	public static final String GOULYASH = "goulyash";
+	public static final String FISH_SOUP = "fish_soup";
+	public static final String FISH_BURGER = "fish_burger";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,22 +26,28 @@ public class FishAppRecipeActivity extends Activity {
 		final Button button1 = (Button) findViewById(R.id.recipebutton1);
 		final Button button2 = (Button) findViewById(R.id.recipebutton2);
 		final Button button3 = (Button) findViewById(R.id.recipebutton3);
+		button1.setOnClickListener(this);
+		button2.setOnClickListener(this);
+		button3.setOnClickListener(this);
 		 
-		
-		Button.OnClickListener btnclick = new Button.OnClickListener(){
-
-		    @Override
-		    public void onClick(View v) {
-		        // TODO Auto-generated method stub
-
-		        Button button = (Button)v;
-		        Intent startRecipeWebActivity = new Intent(getBaseContext(), RecipeWebActivity.class);
-		        startRecipeWebActivity.putExtra("recipeNumber", button.getText().charAt(button.getText().length()));
-		        startActivity(startRecipeWebActivity);
-		        
-		    //Toast.makeText(getApplicationContext(), button.getText().toString(),2).show();  
-		    }
-
-		};
-		}
 	}
+
+	@Override
+	public void onClick(View v) {
+        Intent startRecipeWebActivity = new Intent(getBaseContext(), WebActivity.class);
+        switch (v.getId()) {
+		case R.id.recipebutton1:
+			startRecipeWebActivity.putExtra("recipeNumber", FISH_SOUP);
+			break;
+		case R.id.recipebutton2:
+			startRecipeWebActivity.putExtra("recipeNumber", FISH_BURGER);
+			break;
+		case R.id.recipebutton3:
+			startRecipeWebActivity.putExtra("recipeNumber", GOULYASH);
+			break;	
+		default:
+			break;
+		}
+        startActivity(startRecipeWebActivity);
+	}
+}
