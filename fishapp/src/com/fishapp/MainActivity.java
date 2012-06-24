@@ -40,6 +40,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, FishAppRecipeActivity.class));
 			break;
 		case R.id.wiki:
+			Intent intent = new Intent(this, WebActivity.class);
+			intent.putExtra("wiki", "wiki");
+			startActivity(intent);
 			break;
 		default:
 			break;

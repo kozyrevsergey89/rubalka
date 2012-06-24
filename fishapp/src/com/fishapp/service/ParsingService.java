@@ -9,7 +9,6 @@ import com.fishapp.service.parser.XmlParser;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class ParsingService extends IntentService {
 
