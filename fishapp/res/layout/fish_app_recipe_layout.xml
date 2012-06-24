@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <Button 
+        style="@style/weatherstyle"
+        android:layout_height="wrap_content"
+        android:text="@string/recipe1"
+        android:id="@+id/recipebutton1"
+        />
+    <Button 
+        style="@style/weatherstyle"
+        android:layout_height="wrap_content"
+        android:text="@string/recipe2"
+        android:id="@+id/recipebutton2"
+        />
+    <Button 
+        style="@style/weatherstyle"
+        android:layout_height="wrap_content"
+        android:text="@string/recipe3"
+        android:id="@+id/recipebutton3"
+        />
+    
+    
+
+</LinearLayout>
