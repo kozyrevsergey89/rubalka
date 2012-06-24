@@ -2,21 +2,90 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    >
+    android:background="@android:color/white"
+    android:orientation="vertical" >
 
-    <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
+    <include layout="@layout/action_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
         >
-        
-        <ImageButton 
-            android:id="@+id/home"
+
+        <Button
+            android:id="@+id/weather"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:drawablePadding="7dp"
+            android:drawableTop="@drawable/weather"
+            android:gravity="center_horizontal"
+            android:text="@string/weather"
+            android:textColor="#000066"
+            android:textSize="20dp" 
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_selector"
+            />
+
+        <Button
+            android:id="@+id/calendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/calendar"
+            android:gravity="center_horizontal"
+            android:text="@string/calendar"
+            android:textColor="#000066"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_selector"
             />
         
     </LinearLayout>
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        >
+
+        <Button
+            android:id="@+id/wiki"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/wiki"
+            android:gravity="center_horizontal"
+            android:text="@string/wiki"
+            android:textColor="#000066"
+            android:textSize="20dp"
+            android:textStyle="bold" 
+            android:background="@drawable/bg_button_selector"
+            />
+
+        <Button
+            android:id="@+id/cook_book"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/cook_book"
+            android:gravity="center_horizontal"
+            android:text="@string/cook_book"
+            android:textColor="#000066"
+            android:textSize="20dp"
+            android:textStyle="bold" 
+            android:background="@drawable/bg_button_selector"
+            />
+        
+    </LinearLayout>
+
 </LinearLayout>
