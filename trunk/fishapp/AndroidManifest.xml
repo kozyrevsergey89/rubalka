@@ -24,8 +24,8 @@
         <activity android:name=".FishappActivity" />
         
         <service android:name=".service.ParsingService" />
-        <activity android:name="RecipeWebActivity"></activity>
-        <activity android:name="FishAppRecipeActivity"></activity>
+        <activity android:name="RecipeWebActivity" />
+        <activity android:name="FishAppRecipeActivity" />
         
     </application>
 
