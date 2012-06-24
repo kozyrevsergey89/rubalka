@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, FishappActivity!</string>
+    <string name="hello">Fish app</string>
     <string name="app_name">Fishapp</string>
     <string name="weather_url">http://informer.gismeteo.ru/xml/33345_1.xml</string>
     <string name="smallw1">smallweather1</string>
     <string name="smallw2">smallweather2</string>
 	<string name="smallw3">smallweather3</string>
     <string name="smallw4">smallweather4</string>
+    
+    <string name="weather">Погода</string>
+    <string name="calendar">Календарь</string>
+    <string name="wiki">Инфо</string>
+    <string name="cook_book">Рецепты</string>
     
 </resources>
