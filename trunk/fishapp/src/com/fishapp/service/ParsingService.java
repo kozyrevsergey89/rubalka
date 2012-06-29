@@ -1,12 +1,9 @@
 package com.fishapp.service;
 
 import java.io.IOException;
-
 import org.xmlpull.v1.XmlPullParserException;
-
 import com.fishapp.R;
 import com.fishapp.service.parser.XmlParser;
-
 import android.app.IntentService;
 import android.content.Intent;
 
