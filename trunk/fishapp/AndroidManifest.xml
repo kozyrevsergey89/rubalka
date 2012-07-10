@@ -26,6 +26,19 @@
         <service android:name=".service.ParsingService" />
         <activity android:name=".WebActivity" />
         <activity android:name="FishAppRecipeActivity" />
+        <activity android:name="com.fishapp.calendar.CalendarActivity">
+    
+		    <intent-filter>
+		        <action android:name="android.intent.action.PICK" />
+		        <category android:name="android.intent.category.DEFAULT" />
+		        <data android:mimeType="vnd.android.cursor.dir/vnd.exina.android.calendar.date" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="android.intent.action.VIEW" />
+		        <category android:name="android.intent.category.DEFAULT" />
+		        <data android:mimeType="vnd.android.cursor.dir/vnd.exina.android.calendar.date" />
+		    </intent-filter>
+	</activity>
         
     </application>
 
