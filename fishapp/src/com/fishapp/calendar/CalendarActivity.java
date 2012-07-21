@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CalendarActivity2 extends Activity  implements CalendarView.OnCellTouchListener{
+public class CalendarActivity extends Activity  implements CalendarView.OnCellTouchListener{
 	public static final String MIME_TYPE = "vnd.android.cursor.dir/vnd.exina.android.calendar.date";
 	CalendarView mView = null;
 	TextView mHit;
@@ -96,7 +96,7 @@ public class CalendarActivity2 extends Activity  implements CalendarView.OnCellT
 
 		mHandler.post(new Runnable() {
 			public void run() {
-				Toast.makeText(CalendarActivity2.this, DateUtils.getMonthString(mView.getMonth(), DateUtils.LENGTH_LONG) + " "+mView.getYear(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(CalendarActivity.this, DateUtils.getMonthString(mView.getMonth(), DateUtils.LENGTH_LONG) + " "+mView.getYear(), Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
