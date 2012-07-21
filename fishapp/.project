@@ -32,6 +32,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>res/xml/sendsms.xml</name>
+			<type>1</type>
+			<location>/home/david/Documents/friendinneed/sendsms.xml</location>
+		</link>
+		<link>
 			<name>src/com/fishapp/calendar/CalendarActivity.java</name>
 			<type>1</type>
 			<location>/home/david/Downloads/calendar/Calendar/src/com/exina/android/calendar/CalendarActivity.java</location>
