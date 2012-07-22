@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 public class WebActivity extends Activity {
 	
@@ -21,21 +21,22 @@ public class WebActivity extends Activity {
 	    String utf = "UTF-8";
 
 		Intent startingIntent = getIntent();
-		TextView logo = (TextView) findViewById(R.id.action_bar_logo);
+		
+		ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
+
+
 		WebView recipeWebView = (WebView) findViewById(R.id.recipe_web_view);
 		if (startingIntent.getExtras().containsKey("wiki")) {
-			logo.setText(getString(R.string.wiki));
+	        actionBaView.setImageResource(R.drawable.enciclopedia_logo);
 			recipeWebView.loadDataWithBaseURL("",parseHtmlFile(R.raw.wiki) , text, utf, "");
 		} else {
+			actionBaView.setImageResource(R.drawable.recepts_logo);
 			String numberOfWebViewRecipe = startingIntent.getStringExtra("recipeNumber");
 			if(numberOfWebViewRecipe.equals(FishAppRecipeActivity.FISH_BURGER)) {
-				logo.setText(getString(R.string.fish_burger));
 				recipeWebView.loadDataWithBaseURL("",parseHtmlFile(R.raw.fish_bourger) , text, utf, "");
 			} else if (numberOfWebViewRecipe.equals(FishAppRecipeActivity.FISH_SOUP)) {
-				logo.setText(getString(R.string.fish_soup));
 				recipeWebView.loadDataWithBaseURL("",parseHtmlFile(R.raw.fish_soup) , text, utf, "");
 			} else {
-				logo.setText(getString(R.string.goulash));
 				recipeWebView.loadDataWithBaseURL("",parseHtmlFile(R.raw.goulyash) , text, utf, "");
 			}
 		}

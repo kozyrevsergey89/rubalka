@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 public class FishFortheDay extends Activity implements OnClickListener {
 	
@@ -25,8 +23,9 @@ public class FishFortheDay extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fish_for_the_day_layout);
 		
-		TextView logo = (TextView) findViewById(R.id.action_bar_logo);
-		logo.setText(getString(R.string.fish_for_the_day));
+		ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
+        actionBaView.setImageResource(R.drawable.logo);
+        
 		button1 = (Button) findViewById(R.id.recipebutton1);
 		button2 = (Button) findViewById(R.id.recipebutton2);
 		button3 = (Button) findViewById(R.id.recipebutton3);
@@ -55,18 +54,18 @@ public class FishFortheDay extends Activity implements OnClickListener {
 		int min = 65;
 		int max = 80;
 		Random r = new Random();
-		button1.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button2.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button3.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button4.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button5.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button6.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
-		button7.append("   - "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button1.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button2.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button3.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button4.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button5.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button6.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
+		button7.append("   -   "+ new Integer(r.nextInt(max - min + 1) + min).toString()+" %");
 	}
 
 	@Override
 	public void onClick(View v) {
-		Toast.makeText(this, "тут выводим инфу из либы по рыбкам", Toast.LENGTH_SHORT);
+		//Toast.makeText(this, "тут выводим инфу из либы по рыбкам", Toast.LENGTH_SHORT);
 		/*
         Intent startRecipeWebActivity = new Intent(getBaseContext(), WebActivity.class);
         switch (v.getId()) {
@@ -83,6 +82,10 @@ public class FishFortheDay extends Activity implements OnClickListener {
 			break;
 		}
         startActivity(startRecipeWebActivity);
-	*/}
+	*/
+		 Intent startRecipeWebActivity = new Intent(getBaseContext(), WebActivity.class);
+		 startRecipeWebActivity.putExtra("wiki", "wiki");
+		 startActivity(startRecipeWebActivity);
+	}
 
 }

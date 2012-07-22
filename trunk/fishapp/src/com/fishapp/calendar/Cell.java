@@ -20,12 +20,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 public class Cell {
-	private static final String TAG = "Cell";
 	protected Rect mBound = null;
 	protected int mDayOfMonth = 1;	// from 1 to 31
 	protected Paint mPaint = new Paint(Paint.SUBPIXEL_TEXT_FLAG

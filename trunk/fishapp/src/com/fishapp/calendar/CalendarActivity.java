@@ -23,7 +23,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,9 +41,8 @@ public class CalendarActivity extends Activity  implements CalendarView.OnCellTo
         setContentView(R.layout.calendar);
         mView = (CalendarView)findViewById(R.id.calendar);
         mView.setOnCellTouchListener(this);
-        
-        if(getIntent().getAction().equals(Intent.ACTION_PICK))
-        	findViewById(R.id.hint).setVisibility(View.INVISIBLE);
+        ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
+        actionBaView.setImageResource(R.drawable.calendar_logo);
     }
 
 	public void onTouch(Cell cell) {

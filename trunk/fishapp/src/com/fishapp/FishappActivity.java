@@ -21,7 +21,6 @@ public class FishappActivity extends Activity {
 	public String tempMin="0";
 	public int cloudiness=0;
 	public int presipatation=0;
-	private BroadcastReceiver sentSmsBroadcastCome;
 	private WhetherReceiver whetherReceiver;
 	
 	@Override
@@ -29,8 +28,8 @@ public class FishappActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weatherlayout);
         //starting intent-service
-        TextView actionBaView = (TextView) findViewById(R.id.action_bar_logo);
-        actionBaView.setText(getString(R.string.weather));
+        ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
+        actionBaView.setImageResource(R.drawable.weather_logo);
     }
 	
 	@Override
@@ -61,7 +60,9 @@ public class FishappActivity extends Activity {
 	
 	@Override
 	protected void onStop() {
-		unregisterReceiver(sentSmsBroadcastCome);
+		if(whetherReceiver != null) {
+			unregisterReceiver(whetherReceiver);
+		}
 		super.onStop();
 	}
 	
@@ -107,10 +108,7 @@ public class FishappActivity extends Activity {
 			int def = 0;
 			cloudiness = prefs.getInt("cloudiness", def);
 			presipatation = prefs.getInt("presipatation", def);
-			
 		}
-		
-		
 	}
 	
 	public Boolean getConnInfo(){

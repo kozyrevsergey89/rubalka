@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" 
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    >
     
     <include layout="@layout/action_bar"/>
     
@@ -13,10 +14,10 @@
         android:text="@string/fish_soup"
         android:id="@+id/recipebutton1"
         android:layout_margin="0dp"
-        android:background="@drawable/bg_recept_selector"
-        android:textColor="#000066"
+        android:textColor="#0ba3f9"
         android:textStyle="bold"
         android:textSize="15dp"
+        android:background="@drawable/button_selector"
         />
 
     <View 
@@ -32,10 +33,10 @@
         android:text="@string/fish_burger"
         android:id="@+id/recipebutton2"
         android:layout_margin="0dp"
-        android:textColor="#000066"
-        android:background="@drawable/bg_recept_selector"
+        android:textColor="#0ba3f9"
         android:textStyle="bold"
         android:textSize="15dp"
+        android:background="@drawable/button_selector"
         />
     
     <View 
@@ -51,10 +52,10 @@
         android:layout_height="50dp"
         android:text="@string/goulash"
         android:id="@+id/recipebutton3"
-        android:background="@drawable/bg_recept_selector"
-        android:textColor="#000066"
+        android:textColor="#0ba3f9"
         android:textStyle="bold"
         android:textSize="15dp"
+        android:background="@drawable/button_selector"
         />
     
     <View 

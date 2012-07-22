@@ -22,12 +22,12 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/fish1"
 		        android:id="@+id/recipebutton1"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/karas"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
@@ -42,12 +42,12 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/fish2"
 		        android:id="@+id/recipebutton2"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/karp"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
@@ -62,12 +62,12 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/fish3"
 		        android:id="@+id/recipebutton3"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/shuka"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
@@ -82,12 +82,12 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/fish4"
 		        android:id="@+id/recipebutton4"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/lesh"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
@@ -102,13 +102,13 @@
 		        android:text="@string/fish5"
 		        android:id="@+id/recipebutton5"
 		        android:layout_margin="0dp"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/som"
 		        android:gravity="center_horizontal|center_vertical"
 		        android:maxLines="1"
+		        android:background="@drawable/button_selector"
 		        />
 		
 		    <View 
@@ -124,12 +124,12 @@
 		        android:text="@string/fish6"
 		        android:id="@+id/recipebutton6"
 		        android:layout_margin="0dp"
-		        android:textColor="#000066"
-		        android:background="@drawable/bg_recept_selector"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/sudak"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
@@ -145,12 +145,12 @@
 		        android:layout_height="wrap_content"
 		        android:text="@string/fish7"
 		        android:id="@+id/recipebutton7"
-		        android:background="@drawable/bg_recept_selector"
-		        android:textColor="#000066"
+		        android:textColor="#0ba3f9"
 		        android:textStyle="bold"
 		        android:textSize="15dp"
 		        android:drawableTop="@drawable/yaz"
 		        android:gravity="center_horizontal|center_vertical"
+		        android:background="@drawable/button_selector"
 		        />
 		    
 		    <View 
