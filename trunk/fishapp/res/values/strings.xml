@@ -13,10 +13,18 @@
     <string name="goulash">Гуляш</string>
     <string name="moon_cicle_text">Фаза луны</string>
     <string name="weather_cicle_text">Погода на сегодня</string>
+    <string name="fish1">Карась</string>
+    <string name="fish2">Карп</string>
+    <string name="fish3">Щука</string>
+    <string name="fish4">Лещ</string>
+    <string name="fish5">Сом</string>
+    <string name="fish6">Судак</string>
+    <string name="fish7">Язь</string>
     <string name="weather">Погода</string>
     <string name="calendar">Календарь</string>
     <string name="wiki">Инфо</string>
     <string name="cook_book">Рецепты</string>
+    <string name="fish_for_the_day">Клев на сегодня</string>
     <string name="small_weather_description">Погода на ближайшие четыре дня</string>
     
     <string name="calendar_toast">Календарь рыбака доступен в платной версии.</string>
