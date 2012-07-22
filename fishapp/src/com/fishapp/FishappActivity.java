@@ -74,7 +74,7 @@ public class FishappActivity extends Activity {
 		ImageView smallWeather3 = (ImageView) findViewById(R.id.smallweather3);
 		ImageView smallWeather4 = (ImageView) findViewById(R.id.smallweather4);
 		TextView weatherInfo = (TextView) findViewById(R.id.weathertext);
-		weatherInfo.setText("Температура сегодня \n"+"от "+tempMin+" до "+tempMax);
+		weatherInfo.setText(R.string.temperature_ad+"от "+tempMin+" до "+tempMax);
 		if (cloudiness > 0){
 			bigWeather.setImageLevel(2);
 			smallWeather1.setImageLevel(2);
