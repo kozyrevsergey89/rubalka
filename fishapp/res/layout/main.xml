@@ -14,6 +14,7 @@
         android:orientation="horizontal"
         android:paddingLeft="13dp"
         android:paddingRight="13dp"
+        android:paddingBottom="13dp"
         >
 
         <Button
@@ -21,31 +22,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawablePadding="7dp"
-            android:drawableTop="@drawable/weather"
-            android:gravity="center_horizontal"
-            android:text="@string/weather"
-            android:textColor="#000066"
-            android:textSize="20dp" 
-            android:textStyle="bold"
-            android:background="@drawable/bg_button_selector"
-            />
+            android:layout_weight="0.77"
+            android:background="@drawable/bg_weather_selector"
+            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/calendar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/calendar"
-            android:gravity="center_horizontal"
-            android:text="@string/calendar"
-            android:textColor="#000066"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:background="@drawable/bg_button_selector"
-            />
+            android:layout_weight="0.84"
+            android:background="@drawable/bg_calendar_selector"
+            android:gravity="center_horizontal" />
         
     </LinearLayout>
 
@@ -61,30 +49,18 @@
         <Button
             android:id="@+id/wiki"
             android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/wiki"
-            android:gravity="center_horizontal"
-            android:text="@string/wiki"
-            android:textColor="#000066"
-            android:textSize="20dp"
-            android:textStyle="bold" 
-            android:background="@drawable/bg_button_selector"
-            />
+            android:layout_height="126dp"
+            android:layout_weight="0.83"
+            android:background="@drawable/bg_enciclopedia_selector"
+            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/cook_book"
             android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/cook_book"
-            android:gravity="center_horizontal"
-            android:text="@string/cook_book"
-            android:textColor="#000066"
-            android:textSize="20dp"
-            android:textStyle="bold" 
-            android:background="@drawable/bg_button_selector"
-            />
+            android:layout_height="124dp"
+            android:layout_weight="0.84"
+            android:background="@drawable/bg_recept_selector"
+            android:gravity="center_horizontal" />
         
     </LinearLayout>
 

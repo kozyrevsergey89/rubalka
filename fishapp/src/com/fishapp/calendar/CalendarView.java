@@ -40,7 +40,6 @@ public class CalendarView extends ImageView {
     private static int CELL_MARGIN_LEFT = 39;
     private static float CELL_TEXT_SIZE;
     
-	private static final String TAG = "CalendarView"; 
 	private Calendar mRightNow = null;
     private Drawable mWeekTitle = null;
     private Cell mToday = null;

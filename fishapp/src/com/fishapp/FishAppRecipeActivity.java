@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 public class FishAppRecipeActivity extends Activity implements OnClickListener{
     /** Called when the activity is first created. */
@@ -21,8 +21,8 @@ public class FishAppRecipeActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fish_app_recipe_layout);
 		
-		TextView logo = (TextView) findViewById(R.id.action_bar_logo);
-		logo.setText(getString(R.string.cook_book));
+		ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
+        actionBaView.setImageResource(R.drawable.recepts_logo);
 		final Button button1 = (Button) findViewById(R.id.recipebutton1);
 		final Button button2 = (Button) findViewById(R.id.recipebutton2);
 		final Button button3 = (Button) findViewById(R.id.recipebutton3);
