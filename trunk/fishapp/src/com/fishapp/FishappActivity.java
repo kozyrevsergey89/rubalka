@@ -87,13 +87,13 @@ public class FishappActivity extends Activity {
 		smallWeather2.setImageLevel(randomGenerator.nextInt(3));
 		smallWeather3.setImageLevel(randomGenerator.nextInt(3));
 		smallWeather4.setImageLevel(randomGenerator.nextInt(3));
-		Calendar rightNow = Calendar.getInstance();
-		int x = 7;
-		if (rightNow.getTime().getDay() < x){
+		Integer x = new Integer(7);
+		int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH); 
+		if (day < x){
 			bigMoon.setImageLevel(0);
-		}else if(rightNow.getTime().getDay() < 2*x){
+		}else if(day < 2*x){
 			bigMoon.setImageLevel(1);
-		}else if(rightNow.getTime().getDay() < 3*x){
+		}else if(day < 3*x){
 			bigMoon.setImageLevel(2);
 		}else{
 			bigMoon.setImageLevel(3);
@@ -107,7 +107,7 @@ public class FishappActivity extends Activity {
 			tempMin = prefs.getString("MIN", "not found");
 			int def = 0;
 			cloudiness = prefs.getInt("cloudiness", def);
-			presipatation = prefs.getInt("presipatation", def);
+			presipatation = prefs.getInt("precipitation", def);
 		}
 	}
 	
