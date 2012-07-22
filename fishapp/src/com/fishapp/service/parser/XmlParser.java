@@ -77,6 +77,8 @@ public class XmlParser {
 	        cloudiness = Integer.parseInt(cloud);
 	        precipitation = Integer.parseInt(pheno);
 	        
+	        
+	        
 	      } catch (final ParserConfigurationException e) {
 	        Log.e("XMLParser", "parser exception", e);
 	      } catch (final SAXException e) {
