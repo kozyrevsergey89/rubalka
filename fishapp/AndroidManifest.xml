@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         
+        <activity android:name=".FishFortheDay" />
         <activity android:name=".FishappActivity" />
         
         <service android:name=".service.ParsingService" />

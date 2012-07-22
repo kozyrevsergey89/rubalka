@@ -1,5 +1,8 @@
 package com.fishapp;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import com.fishapp.calendar.CalendarActivity;
 
 import android.app.Activity;
@@ -36,7 +39,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, FishappActivity.class));
 			break;
 		case R.id.calendar:
-			startActivity(new Intent(Intent.ACTION_VIEW).setDataAndType(null, com.fishapp.calendar.CalendarActivity.MIME_TYPE));
+			startActivityForResult(new Intent(Intent.ACTION_PICK).setDataAndType(null, CalendarActivity.MIME_TYPE), 100);
+			//startActivity(new Intent(Intent.ACTION_VIEW).setDataAndType(null, com.fishapp.calendar.CalendarActivity.MIME_TYPE));
 			//Toast.makeText(this, getString(R.string.calendar_toast), Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.cook_book:
@@ -50,6 +54,27 @@ public class MainActivity extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    if(resultCode==RESULT_OK) {
+	        int year = data.getIntExtra("year", 0);   // get number of year
+	        int month = data.getIntExtra("month", 0); // get number of month 0..11
+	        int day = data.getIntExtra("day", 0);     // get number of day 0..31
+
+	        // format date and display on screen
+	        final Calendar dat = Calendar.getInstance();
+	        dat.set(Calendar.YEAR, year);
+	        dat.set(Calendar.MONTH, month);
+	        dat.set(Calendar.DAY_OF_MONTH, day);
+	        
+	        // show result
+	        SimpleDateFormat format = new SimpleDateFormat("yyyy MMM dd");
+	        Toast.makeText(this, format.format(dat.getTime()), Toast.LENGTH_LONG).show();
+	        startActivity(new Intent(this,FishFortheDay.class));
+	                
+	    }
 	}
 	
 }
