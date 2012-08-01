@@ -33,6 +33,10 @@ public class XmlParser {
 	    String max = null;
 	    String pheno = null;
 	    String cloud = null;
+	    String pressMax = null;
+	    String pressMin = null;
+	    String windMax = null;
+	    String windMin = null;
 	    int cloudiness=0;
 	    int precipitation=0;
 		
@@ -55,15 +59,33 @@ public class XmlParser {
 
 	        final NodeList phenoList = doc.getElementsByTagName("PHENOMENA");
 	        final Node pheNode = phenoList.item(2);
+	        
+	        final NodeList pressList = doc.getElementsByTagName("PRESSURE");
+	        final Node pressNode = pressList.item(2);
+	        
+	        final NodeList windList = doc.getElementsByTagName("WIND");
+	        final Node windNode = windList.item(2);
 
 	        final NamedNodeMap attribute = node.getAttributes();
 	        final Node value = attribute.getNamedItem("min");
 
 	        final NamedNodeMap map = pheNode.getAttributes();
 	        final Node mapVal = map.getNamedItem("cloudiness");
+	        
+	        final NamedNodeMap pressAttr = pressNode.getAttributes();
+	        final Node pressMaxN = pressAttr.getNamedItem("max");
+	        final Node pressMinN = pressAttr.getNamedItem("min");
+	        
+	        final NamedNodeMap windAttr = windNode.getAttributes();
+	        final Node windMaxN = windAttr.getNamedItem("max");
+	        final Node windMinN = windAttr.getNamedItem("min");
 
 	        min = value.getNodeValue();
 	        cloud = mapVal.getNodeValue();
+	        pressMax = pressMaxN.getNodeValue();
+	        pressMin = pressMinN.getNodeValue();
+	        windMax = windMaxN.getNodeValue();
+	        windMin = windMinN.getNodeValue();
 
 	        final NamedNodeMap maxAttr = node.getAttributes();
 	        final Node maxValue = maxAttr.getNamedItem("max");
@@ -93,6 +115,10 @@ public class XmlParser {
 	    prefEditor.putString("MIN", min);
 	    prefEditor.putInt("cloudiness", cloudiness);
 	    prefEditor.putInt("precipitation", precipitation);
+	    prefEditor.putString("pressMin", pressMin);
+	    prefEditor.putString("pressMax", pressMax);
+	    prefEditor.putString("windMin", windMin);
+	    prefEditor.putString("windMax", windMax);
 	    prefEditor.commit();
 	    
 	    

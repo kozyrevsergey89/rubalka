@@ -14,11 +14,16 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FishappActivity extends Activity {
     /** Called when the activity is first created. */
-	public String tempMax="0";
-	public String tempMin="0";
+	public String tempMax=null;
+	public String tempMin=null;
+	public String windMax=null;
+	public String windMin=null;
+	public String pressMax=null;
+	public String pressMin=null;
 	public int cloudiness=0;
 	public int presipatation=0;
 	private WhetherReceiver whetherReceiver;
@@ -30,11 +35,17 @@ public class FishappActivity extends Activity {
         //starting intent-service
         ImageView actionBaView = (ImageView) findViewById(R.id.action_bar_logo);
         actionBaView.setImageResource(R.drawable.weather_logo);
+        doWeather();
     }
 	
 	@Override
 	protected void onStart() {
 		super.onStart();
+		doWeather();
+
+	}
+	
+	private void doWeather(){
 		whetherReceiver = new WhetherReceiver();
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("toActivity");
@@ -44,10 +55,9 @@ public class FishappActivity extends Activity {
         	startService(new Intent(this, ParsingService.class));
         	
             
-        }	
+        }	else { Toast.makeText(this, "отсутствует подключение...", Toast.LENGTH_SHORT);}
         getFromSharedPreferences();
         displayWeather();
-
 	}
 	
 	private class WhetherReceiver extends BroadcastReceiver {
@@ -74,7 +84,10 @@ public class FishappActivity extends Activity {
 		ImageView smallWeather3 = (ImageView) findViewById(R.id.smallweather3);
 		ImageView smallWeather4 = (ImageView) findViewById(R.id.smallweather4);
 		TextView weatherInfo = (TextView) findViewById(R.id.weathertext);
-		weatherInfo.setText(R.string.temperature_ad+"от "+tempMin+" до "+tempMax);
+		weatherInfo.setText(getString(R.string.temperaturead)+"от "+tempMin+" до "+tempMax
+							+ "\nдавление:\n "+ "от "+ pressMin + " до "+pressMax+"мм рт.ст.\n"
+							+"ветер: "+windMin+"-"+windMax+" м/c"
+							);
 		if (cloudiness > 0){
 			bigWeather.setImageLevel(2);
 			smallWeather1.setImageLevel(2);
@@ -108,6 +121,10 @@ public class FishappActivity extends Activity {
 			int def = 0;
 			cloudiness = prefs.getInt("cloudiness", def);
 			presipatation = prefs.getInt("precipitation", def);
+			windMax = prefs.getString("windMax", "not found");
+			windMin = prefs.getString("windMin", "not found");
+			pressMax = prefs.getString("pressMax", "not found");
+			pressMin = prefs.getString("pressMin", "not found");
 		}
 	}
 	
