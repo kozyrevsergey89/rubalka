@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Клёв будет</string>
-    <string name="temperature_ad">Температура сегодня \n</string>
+    <string name="temperaturead">Температура сегодня: \n</string>
     <string name="app_name">Fishapp</string>
     <string name="weather_url">http://informer.gismeteo.ru/xml/33345_1.xml</string>
     <string name="smallw1">smallweather1</string>
